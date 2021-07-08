@@ -1,0 +1,41 @@
+.top-nav {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.nav-bar {
+  display: grid;
+  grid-template-columns: 300px 3fr 1fr;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35.5px;
+}
+
+.cat-drop-down {
+  height: 40px;
+  border-radius: 20px;
+  width: 200px;
+  margin-top: 51px;
+  outline: none;
+}
+
+.searchBar {
+  margin-left: 20px;
+  border-radius: 20px;
+  height: 32px;
+  outline: none;
+}
+
+.bottom-nav {
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+}
