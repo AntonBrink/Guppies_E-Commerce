@@ -1,6 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch"
+import { FaPhoneAlt } from "@react-icons/all-files/fa/FaPhoneAlt"
+import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail"
+
 import * as navStyles from "../styles/navStyles.module.scss"
 
 const Mynavbar = () => {
@@ -29,10 +32,11 @@ const Mynavbar = () => {
       <div className={navStyles.bottomNav}>
         <div className={navStyles.contactMethods}>
           <a className={navStyles.phone} href="mailto:twiggymocha@gmail.com">
+            <AiOutlineMail className={navStyles.normalSvg}></AiOutlineMail>
             twiggymocha@gmail.com
           </a>
           <a className={navStyles.phone} href="tel:+0767177054">
-            0767177054
+            <FaPhoneAlt className={navStyles.normalSvg}></FaPhoneAlt>0767177054
           </a>
         </div>
 

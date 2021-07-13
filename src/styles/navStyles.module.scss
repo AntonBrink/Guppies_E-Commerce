@@ -13,17 +13,41 @@
   display: flex;
   justify-content: space-around;
 }
+
+.link {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  width: 100px;
+  height: 25px;
+}
+
+.normal-svg {
+  display: inline-flex;
+  align-self: center;
+  height: 1em;
+  width: 1em;
+  top: 0.125em;
+  position: relative;
+}
+
+.link:hover {
+  font-weight: 600;
+}
+
 .contactMethods {
   display: flex;
   flex-direction: column;
   margin-top: 35.5px;
+  justify-content: space-around;
+  height: 92px;
 }
 
 .cat-drop-down {
   height: 40px;
   border-radius: 20px;
   width: 200px;
-  margin-top: 51px;
   outline: none;
 }
 
@@ -37,5 +61,4 @@
 .bottom-nav {
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
 }
