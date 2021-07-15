@@ -2,6 +2,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 40px;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 20px;
+  border: solid black 1px;
 }
 
 .category-panel:nth-child(1) {
