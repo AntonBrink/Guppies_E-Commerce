@@ -1,0 +1,31 @@
+.category-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 40px;
+}
+
+.category-panel:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 60%;
+}
+
+.category-panel {
+  text-align: center;
+  height: 500px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  background-color: red;
+  width: 80%;
+  margin: auto auto;
+  line-height: 500px;
+  vertical-align: middle;
+  font-size: 32px;
+}
+
+.category-header {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+}
