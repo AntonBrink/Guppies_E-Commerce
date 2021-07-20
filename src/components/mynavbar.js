@@ -11,36 +11,27 @@ const Mynavbar = () => {
     <header className={navStyles.navBar}>
       <img src="" alt="" width="300" height="200" />
 
-      <div className={navStyles.topNav}>
-        <nav className={navStyles.links}>
-          <Link className={navStyles.link} to="/">
-            Home
-          </Link>
-          <Link className={navStyles.link} to="/shop">
-            Shop
-          </Link>
-          <Link className={navStyles.link} to="/contactus">
-            Contact Us
-          </Link>
-          <Link className={navStyles.link} to="/faq">
-            FAQ
-          </Link>
-        </nav>
-        <input className={navStyles.searchBar} type="text" />
-      </div>
-
-      <div className={navStyles.bottomNav}>
-        <div className={navStyles.contactMethods}>
-          <a className={navStyles.phone} href="mailto:twiggymocha@gmail.com">
-            <AiOutlineMail className={navStyles.normalSvg}></AiOutlineMail>
-            twiggymocha@gmail.com
-          </a>
-          <a className={navStyles.phone} href="tel:+0767177054">
-            <FaPhoneAlt className={navStyles.normalSvg}></FaPhoneAlt>0767177054
-          </a>
+      <div className={navStyles.linksSearch}>
+        <div className={navStyles.topNav}>
+          <nav className={navStyles.links}>
+            <Link className={navStyles.link} to="/">
+              Home
+            </Link>
+            <Link className={navStyles.link} to="/shop">
+              Shop
+            </Link>
+            <Link className={navStyles.link} to="/contactus">
+              Contact Us
+            </Link>
+            <Link className={navStyles.link} to="/faq">
+              FAQ
+            </Link>
+          </nav>
         </div>
 
-        <div>
+        <div className={navStyles.bottomNav}>
+          <input className={navStyles.searchBar} type="text" />
+
           <label htmlFor="Categories"></label>
           <select
             className={navStyles.catDropDown}
@@ -54,7 +45,7 @@ const Mynavbar = () => {
             <option value="Plants">Plants</option>
             <option value="Food">Food</option>
           </select>
-          <FaSearch></FaSearch>
+          <FaSearch className={navStyles.normalSvg}></FaSearch>
         </div>
       </div>
     </header>

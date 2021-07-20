@@ -4,17 +4,34 @@
   row-gap: 40px;
   background-image: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.55),
-    rgba(255, 255, 255, 0.3)
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.1)
   );
-  border-radius: 20px;
-  border: solid black 1px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  // border-radius: 20px;
+  border: solid rgb(55, 156, 122) 5px;
+  border-top: transparent;
+  // border-color: aquamarine;
+  // border-width: 5px;
+  // border: solid black 1px;
+  width: 90%;
+  margin: 30px auto;
 }
 
 .category-panel:nth-child(1) {
   grid-column-start: 1;
   grid-column-end: 4;
   width: 60%;
+}
+
+.category-panel:nth-child(2) {
+  background-image: url("../images/FishImg.webp");
+  background-repeat: no-repeat;
+}
+
+.category-panel:nth-child(3) {
+  background-image: url("../images/JavaMossSmaller.webp");
 }
 
 .category-panel {

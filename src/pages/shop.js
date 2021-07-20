@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import * as shopStyles from "../styles/shop.module.scss"
 import { FaShoppingCart } from "@react-icons/all-files/fa/FaShoppingCart"
 import { FaEye } from "@react-icons/all-files/fa/FaEye"
+import { Link } from "gatsby"
 
 export const myquery = graphql`
   query {
@@ -30,12 +31,12 @@ const Shop = ({ data }) => {
               <article className={shopStyles.product}>
                 <div className={shopStyles.imgContainer}></div>
                 {product.name} <br />R{product.productPrice} <br />
-                <button className={shopStyles.viewBtn}>
+                <Link to={`/` + product.name} className={shopStyles.viewBtn}>
                   <span className={shopStyles.viewIcon}>
                     <FaEye></FaEye>
                   </span>
                   View
-                </button>
+                </Link>
                 <button className={shopStyles.cartBtn}>
                   <span className={shopStyles.cartText}>
                     <FaShoppingCart></FaShoppingCart>
@@ -57,12 +58,12 @@ const Shop = ({ data }) => {
                 />
               </div>
               {product.name} <br />R{product.productPrice} <br />
-              <button className={shopStyles.viewBtn}>
+              <Link to={`/` + product.name} className={shopStyles.viewBtn}>
                 <span className={shopStyles.viewIcon}>
                   <FaEye></FaEye>
                 </span>
                 View
-              </button>
+              </Link>
               <button className={shopStyles.cartBtn}>
                 <span className={shopStyles.cartText}>
                   <FaShoppingCart></FaShoppingCart>

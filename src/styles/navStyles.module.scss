@@ -6,7 +6,14 @@
 
 .nav-bar {
   display: grid;
-  grid-template-columns: 300px 3fr 1fr;
+  grid-template-columns: 300px 3fr;
+  background-color: rgb(214, 214, 214);
+}
+
+.links-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .links {
@@ -18,7 +25,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: none;
   color: black;
-  font-size: 16px;
+  font-size: 20px;
   width: 100px;
   height: 25px;
 }
@@ -30,35 +37,27 @@
   width: 1em;
   top: 0.125em;
   position: relative;
+  margin-left: 10px;
 }
 
 .link:hover {
   font-weight: 600;
 }
 
-.contactMethods {
-  display: flex;
-  flex-direction: column;
-  margin-top: 35.5px;
-  justify-content: space-around;
-  height: 92px;
-}
-
 .cat-drop-down {
   height: 40px;
-  border-radius: 20px;
   width: 200px;
   outline: none;
+  border-left: none;
 }
 
 .searchBar {
-  margin-left: 20px;
-  border-radius: 20px;
-  height: 32px;
+  height: 34px;
+  width: 80%;
   outline: none;
 }
 
 .bottom-nav {
-  display: flex;
-  flex-direction: column;
+  margin: 0px auto;
+  width: 80%;
 }
