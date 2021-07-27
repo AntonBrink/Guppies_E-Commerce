@@ -37,10 +37,9 @@ const Mynavbar = () => {
             className={navStyles.catDropDown}
             name="Categories"
             id="Categories"
+            defaultValue="All"
           >
-            <option selected value="All">
-              All
-            </option>
+            <option value="All">All</option>
             <option value="Fish">Fish</option>
             <option value="Plants">Plants</option>
             <option value="Food">Food</option>
