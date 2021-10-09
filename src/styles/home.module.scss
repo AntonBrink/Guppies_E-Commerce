@@ -1,50 +1,130 @@
 .category-panels {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 40px;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.1)
-  );
+  box-sizing: border-box;
+
+  // background-image: linear-gradient(
+  //   to bottom,
+  //   rgba(255, 255, 255, 0.5),
+  //   rgba(255, 255, 255, 0.1)
+  // );
+  padding: 0px;
   padding-top: 50px;
   padding-bottom: 50px;
-  // border-radius: 20px;
   border: solid rgb(55, 156, 122) 5px;
   border-top: transparent;
-  // border-color: aquamarine;
-  // border-width: 5px;
-  // border: solid black 1px;
-  width: 90%;
-  margin: 30px auto;
+  width: 100%;
+  height: calc(100vh - 200px);
+  position: relative;
 }
 
-.category-panel:nth-child(1) {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  width: 60%;
+.category-panels > div > a {
+  background-color: white;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: block;
 }
 
-.category-panel:nth-child(2) {
-  background-image: url("../images/FishImg.webp");
-  background-repeat: no-repeat;
+.category-panels > div {
+  display: flex;
+  align-items: center;
 }
 
-.category-panel:nth-child(3) {
-  background-image: url("../images/JavaMossSmaller.webp");
+.heater {
+  position: absolute;
+  left: 0%;
+  top: calc(100vh - 200px - 640px);
+  background-image: url("../images/HeaterImg.png");
+  background-size: cover;
+  height: 540px;
+  width: 150px;
+  z-index: 2;
 }
 
-.category-panel {
-  text-align: center;
-  height: 500px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 400;
-  background-color: red;
-  width: 80%;
-  margin: auto auto;
-  line-height: 500px;
-  vertical-align: middle;
+.circleSvg {
+  margin: 0 auto;
+  display: block;
+  color: white;
   font-size: 32px;
+}
+
+.glowingCircle {
+  animation-name: pulse;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.circleSvg > a > text {
+  display: none;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.circleSvg > a:hover > text {
+  display: block;
+  fill: black;
+  font-size: 22px;
+}
+
+.circleSvg > a:hover > .backgroundCircle {
+  display: block;
+  fill: white;
+}
+
+.glowingCircle:hover {
+  width: 100px;
+  animation-name: none;
+  r: 40px;
+}
+
+@keyframes pulse {
+  0% {
+    fill: transparent;
+  }
+  50% {
+    fill: white;
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+.fish {
+  position: absolute;
+  right: 45%;
+  top: 10%;
+  height: 200px;
+  width: 300px;
+  background-image: url("../images/FishImgHome.png");
+  background-size: cover;
+  z-index: 2;
+}
+
+.tank {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  z-index: 2;
+}
+
+.plants > .circleSvg {
+  margin: none;
+  margin-right: 10%;
+}
+
+.backgroundCircle {
+  display: none;
+}
+
+.plants {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  height: 510px;
+  width: 100%;
+  background-image: url(../images/PlantsWoodandSubstrate.png);
+  background-size: cover;
+  background-position: right;
+  z-index: 0;
 }
 
 .category-header {

@@ -7,13 +7,14 @@
 main {
   background-image: url("../images/BackgroundImage1.webp");
   background-repeat: no-repeat;
-  background-color: #155552;
+  background-color: #025b59;
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
+  width: 100%;
 }
 
 .content {
@@ -22,4 +23,5 @@ body {
 
 .footer {
   flex-shrink: 0;
+  background-color: rgb(228, 224, 224);
 }
