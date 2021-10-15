@@ -1,12 +1,19 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   plugins: [
     "gatsby-plugin-sass",
+
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-source-graphql",
+      resolve: "gatsby-source-graphcms",
       options: {
-        typeName: "PRODUCTS",
-        fieldName: "products",
-        url: "https://api-eu-central-1.graphcms.com/v2/ckr492jfn04bm01xl8ogz3x5z/master",
+        endpoint: process.env.MY_LINK,
+        token: process.env.MY_TOKEN,
       },
     },
   ],

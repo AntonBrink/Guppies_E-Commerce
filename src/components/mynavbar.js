@@ -9,7 +9,7 @@ import * as navStyles from "../styles/navStyles.module.scss"
 const Mynavbar = () => {
   return (
     <header className={navStyles.navBar}>
-      <img src="" alt="" width="300" height="200" />
+      <img src="" alt="" width="200" height="100" />
 
       <div className={navStyles.linksSearch}>
         <div className={navStyles.topNav}>

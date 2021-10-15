@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import * as itemStyles from "../styles/item.module.scss"
 import { FaShoppingCart } from "@react-icons/all-files/fa/FaShoppingCart"
-
+import { GatsbyImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 export const productData = graphql`
-  query ($myId: ID!) {
-    products {
-      product(where: { id: $myId }) {
-        name
-        productPrice
-        category
-        id
-        description {
-          markdown
-        }
-        productImage {
-          url
+  query ProductQuery($myId: ID!) {
+    allGraphCmsProduct(filter: { remoteId: { eq: $myId } }) {
+      edges {
+        node {
+          name
+          category
+          productPrice
+          productImage {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+          description {
+            markdown
+          }
         }
       }
     }
@@ -24,16 +26,24 @@ export const productData = graphql`
 `
 
 const ItemDescription = data => {
-  const [id] = useState(data.data.products.product.id)
+  console.log(data)
+
+  const [id] = useState(data.data.allGraphCmsProduct.edges[0].node.id)
   const [stock, setStock] = useState(0)
   useEffect(() => {
     const query = `
-      query  {
-          product(where: { id: "${id}" }) {
-            stock
-          
+       query {
+    allGraphCmsProduct(filter: { id: { eq: "${id}" } }) {
+      edges {
+        node {
+          stock
         }
       }
+    }
+  }
+
+
+
     `
 
     const url =
@@ -52,35 +62,47 @@ const ItemDescription = data => {
       .catch(console.error)
   }, [])
 
-  if (data.data.products.product.productImage !== null) {
+  if (data.data.allGraphCmsProduct.edges[0].node.productImage !== null) {
     return (
       <Layout>
         <div className={itemStyles.content}>
           <div className={itemStyles.leftDiv}>
-            <img
-              className={itemStyles.productImg}
-              src={data.data.products.product.productImage.url}
-              alt=""
-            />
+            <GatsbyImage
+              className={itemStyles.productImage}
+              image={
+                data.data.allGraphCmsProduct.edges[0].node.productImage
+                  .gatsbyImageData
+              }
+              alt={data.data.allGraphCmsProduct.edges[0].node.name}
+            ></GatsbyImage>
           </div>
           <div className={itemStyles.rightDiv}>
             <h1 className={itemStyles.itemTitle}>
-              {data.data.products.product.name}
+              {data.data.allGraphCmsProduct.edges[0].node.name}
             </h1>
-            <div className={itemStyles.priceCat}>
-              <h2>R{data.data.products.product.productPrice}</h2>
-              <h2>{data.data.products.product.category}</h2>
-            </div>
+            <Link
+              className={itemStyles.category}
+              to={`/${data.data.allGraphCmsProduct.edges[0].node.category}`}
+            >
+              {data.data.allGraphCmsProduct.edges[0].node.category}
+            </Link>
+
             <p className={itemStyles.itemDescription}>
-              {data.data.products.product.description.markdown}
+              {data.data.allGraphCmsProduct.edges[0].node.description.markdown}
             </p>
-            <p>Stock: {stock}</p>
-            <button className={itemStyles.cartBtn}>
-              <span className={itemStyles.cartText}>
-                <FaShoppingCart></FaShoppingCart>
-              </span>
-              Add to cart
-            </button>
+
+            <h3>R{data.data.allGraphCmsProduct.edges[0].node.productPrice}</h3>
+
+            <p className={itemStyles.stock}>Stock: {stock}</p>
+
+            <div className={itemStyles.buttonContainer}>
+              <button className={itemStyles.cartBtn}>
+                <span className={itemStyles.cartText}>
+                  <FaShoppingCart></FaShoppingCart>
+                </span>
+                Add to cart
+              </button>
+            </div>
           </div>
         </div>
       </Layout>
@@ -89,25 +111,36 @@ const ItemDescription = data => {
 
   return (
     <Layout>
-      <div className={itemStyles.leftDiv}></div>
-      <h1 className={itemStyles.itemTitle}>
-        {data.data.products.product.name}
-      </h1>
-      <div className={itemStyles.priceCat}>
-        <h2>R{data.data.products.product.productPrice}</h2>
-        <h2>{data.data.products.product.category}</h2>
-      </div>
-      <p className={itemStyles.itemDescription}>
-        {data.data.products.product.description.markdown}
-      </p>
-      <p>Stock: {stock}</p>
+      <div className={itemStyles.content}>
+        <div className={itemStyles.rightDiv}>
+          <h1 className={itemStyles.itemTitle}>
+            {data.data.allGraphCmsProduct.edges[0].node.name}
+          </h1>
+          <Link
+            className={itemStyles.category}
+            to={`/${data.data.allGraphCmsProduct.edges[0].node.category}`}
+          >
+            {data.data.allGraphCmsProduct.edges[0].node.category}
+          </Link>
 
-      <button className={itemStyles.cartBtn}>
-        <span className={itemStyles.cartText}>
-          <FaShoppingCart></FaShoppingCart>
-        </span>
-        Add to cart
-      </button>
+          <p className={itemStyles.itemDescription}>
+            {data.data.allGraphCmsProduct.edges[0].node.description.markdown}
+          </p>
+
+          <h3>R{data.data.allGraphCmsProduct.edges[0].node.productPrice}</h3>
+
+          <div className={itemStyles.buttonContainer}>
+            <p className={itemStyles.stock}>Stock: {stock}</p>
+
+            <button className={itemStyles.cartBtn}>
+              <span className={itemStyles.cartText}>
+                <FaShoppingCart></FaShoppingCart>
+              </span>
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }

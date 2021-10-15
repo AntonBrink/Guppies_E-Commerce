@@ -8,6 +8,18 @@ main {
   background-image: url("../images/BackgroundImage1.webp");
   background-repeat: no-repeat;
   background-color: #025b59;
+  // background-color: #fafafa;
+  min-height: calc(100vh - 100px);
+}
+
+// @font-face {
+//   font-family: "Lato-Regular";
+//   src: local("Archivo-Black"), url(../fonts/Archivo-Black.ttf);
+// }
+
+@font-face {
+  font-family: "Archivo-Regular";
+  src: local("Archivo-Regular"), url(../fonts/Archivo-Regular.ttf);
 }
 
 html,

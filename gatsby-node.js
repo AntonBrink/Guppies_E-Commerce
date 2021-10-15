@@ -5,24 +5,46 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const itemDescriptionTemplate = path.resolve(
     "./src/templates/itemDescription.js"
   )
+  const itemCategoryTemplate = path.resolve("./src/templates/categoryPage.js")
   const res = await graphql(`
     query {
-      products {
-        products {
-          id
-          name
+      allGraphCmsProduct {
+        edges {
+          node {
+            name
+            category
+            remoteId
+          }
         }
       }
     }
   `)
+  let catArray = []
 
-  res.data.products.products.forEach(product => {
+  res.data.allGraphCmsProduct.edges.forEach(product => {
+    console.log(product)
+    console.log(catArray)
+    console.log("color:red", product.node.category)
+    console.log(product.node)
+
+    if (!catArray.includes(product.node.category)) {
+      catArray.push(product.node.category)
+
+      createPage({
+        component: itemCategoryTemplate,
+        path: `/${product.node.category}`,
+        context: { category: product.node.category },
+      })
+    }
+
     createPage({
       component: itemDescriptionTemplate,
-      path: `/${product.name}`,
-      context: { myId: product.id },
+      path: `/${product.node.category}/${product.node.name}`,
+      context: { myId: product.node.remoteId },
     })
-
-    console.log(product.productName)
   })
+
+  // res.data.products.products.forEach(product => {
+
+  // })
 }
