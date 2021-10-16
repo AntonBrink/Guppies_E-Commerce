@@ -8,13 +8,29 @@ const Homepage = () => {
   return (
     <Layout>
       {/* <img src="" alt="" width="1920" height="400" /> */}
+      <div className={homeStyles.lightDiv}></div>
+
       <div>
         {/* <h1 className={homeStyles.categoryHeader}>Categories</h1> */}
 
         <div className={homeStyles.categoryPanels}>
+          <div className={homeStyles.explain}>
+            <svg>
+              <circle
+                cx="50%"
+                cy="50%"
+                r="10"
+                stroke="black"
+                stroke-width="3"
+                fill="white"
+              />
+            </svg>
+            <p>Hover and click on a blinking circle</p>
+          </div>
+
           <div className={homeStyles.fish}>
             <svg className={homeStyles.circleSvg}>
-              <Link to="/shop" className={homeStyles.fishCatBtn}>
+              <Link to="/Fish" className={homeStyles.fishCatBtn}>
                 <circle
                   className={homeStyles.backgroundCircle}
                   cx="50%"
@@ -41,7 +57,7 @@ const Homepage = () => {
           </div>
           <div className={homeStyles.tank}>
             <svg className={homeStyles.circleSvg}>
-              <Link to="/shop" className={homeStyles.fishCatBtn}>
+              <Link to="/Tanks" className={homeStyles.fishCatBtn}>
                 <circle
                   className={homeStyles.backgroundCircle}
                   cx="50%"
@@ -68,7 +84,7 @@ const Homepage = () => {
           </div>
           <div className={homeStyles.heater}>
             <svg className={homeStyles.circleSvg}>
-              <Link to="/shop" className={homeStyles.fishCatBtn}>
+              <Link to="/Heaters" className={homeStyles.fishCatBtn}>
                 <circle
                   className={homeStyles.backgroundCircle}
                   cx="50%"
@@ -95,7 +111,7 @@ const Homepage = () => {
           </div>
           <div className={homeStyles.plants}>
             <svg className={homeStyles.circleSvg}>
-              <Link to="/shop" className={homeStyles.fishCatBtn}>
+              <Link to="/Plants" className={homeStyles.fishCatBtn}>
                 <circle
                   className={homeStyles.backgroundCircle}
                   cx="50%"
