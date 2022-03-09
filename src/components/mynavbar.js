@@ -47,6 +47,11 @@ const Mynavbar = () => {
           <FaSearch className={navStyles.normalSvg}></FaSearch>
         </div>
       </div>
+      <Link className={navStyles.cartLink}>
+        <img src="/bagWithFishNormal.svg" className={navStyles.cartIcon}></img>
+        <p className={navStyles.myBagText}>My Bag</p>
+        <p className={navStyles.itemCounter}>0</p>
+      </Link>
     </header>
   )
 }

@@ -22,11 +22,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   let catArray = []
 
   res.data.allGraphCmsProduct.edges.forEach(product => {
-    console.log(product)
-    console.log(catArray)
-    console.log("color:red", product.node.category)
-    console.log(product.node)
-
     if (!catArray.includes(product.node.category)) {
       catArray.push(product.node.category)
 
